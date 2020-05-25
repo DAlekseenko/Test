@@ -10,8 +10,9 @@
 var should = require('chai').should(),
     assert = require("assert");
 
-
-describe('Hello OpenFin App testing with webdriver.io', function() {
+const screenShootPath = 'screenshots';
+console.log(screenShootPath)
+describe('Hello OpenFin App testing with webdriver.io', function () {
     var notificationButton, cpuInfoButton, cpuInfoExitButton;
 
     /**
@@ -26,7 +27,7 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
     /**
      *  Check if OpenFin Javascript API fin.desktop.System.getVersion exits
      *
-    **/
+     **/
     function checkFinGetVersion() {
         const result = browser.executeAsync(function (done) {
             if (fin && fin.desktop && fin.desktop.System && fin.desktop.System.getVersion) {
@@ -39,20 +40,20 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
     }
 
     /**
-     *  Wait for OpenFin Javascript API to be injected 
+     *  Wait for OpenFin Javascript API to be injected
      *
-    **/
+     **/
     function waitForFinDesktop() {
         const ready = checkFinGetVersion();
         if (!ready) {
             browser.pause(1000);
-            waitForFinDesktop();               
+            waitForFinDesktop();
         }
     }
 
     it('Switch to Hello OpenFin Main window', () => {
         switchWindowByTitle("Hello OpenFin");
-        browser.testableScreenshot('Main');
+        browser.testableScreenshot(`${screenShootPath}/Main`);
     });
 
     it('Wait for OpenFin API ready', () => {
@@ -86,7 +87,7 @@ describe('Hello OpenFin App testing with webdriver.io', function() {
 
     it('Switch to CPU Info window', () => {
         switchWindowByTitle("Hello OpenFin CPU Info");
-        browser.testableScreenshot('CPU');
+        browser.testableScreenshot(`${screenShootPath}/CPU`);
     });
 
 

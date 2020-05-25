@@ -18,9 +18,10 @@ do
   fi
 done
 
-echo "Running openfin"
+echo "Running openfin here"
 
 runtimeArgs="--remote-debugging-port=$DEVTOOLS_PORT"
 export runtimeArgs
+
 
 openfin -l -c $CONFIG -p $DEVTOOLS_PORT
