@@ -1,15 +1,13 @@
 FROM ubuntu:xenial
 
-#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CE49EC21
-
 RUN apt-get update; apt-get clean
 
 # Install xvfb.
-RUN apt-get install -y xvfb curl gnupg unzip wget
+RUN apt-get install -y xvfb curl unzip wget
 
 ADD xvfb.init /etc/init.d/xvfb
-RUN chmod +x /etc/init.d/xvfb
-RUN update-rc.d xvfb defaults
+RUN chmod +x /etc/init.d/xvfb && \
+    update-rc.d xvfb defaults
 
 # Set the Chrome repo.
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
