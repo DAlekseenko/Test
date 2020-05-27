@@ -4,7 +4,7 @@
 set -m
 
 # Start the helper process and put it in the background
-./chromedriver &
+chromedriver &
 
 # Start the main process
 npm run start
