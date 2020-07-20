@@ -13,7 +13,7 @@
     "@wdio/mocha-framework": "5.16.0",
     "@wdio/sync": "5.16.0",
     "chai": "4.2.0",
-    "lodash": "4.17.14",
+    "lodash": "4.17.19",
     "testable-utils": "0.3.7",
     "webdriverio": "5.16.2"
   },
